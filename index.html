@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Firebase Chat</title>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+
+</head>
+<body>
+  <input id="username" type="text" placeholder="Name"><br/>
+  <input id="text" type="text" placeholder="Message"><br/>
+  <button id="post">Post</button><br/>
+  <div id="results"></div>
+  <script>
+  
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCL2jHHGHkdfFigqmtwLkUsWkInuxSMsj4",
+    authDomain: "chat-room-dd9cf.firebaseapp.com",
+    databaseURL: "https://chat-room-dd9cf.firebaseio.com",
+    storageBucket: "chat-room-dd9cf.appspot.com",
+    messagingSenderId: "57403322938"
+  };
+  firebase.initializeApp(config);
+
+
+  var database = firebase.database();
+
+    var usernameInput = document.querySelector('#username');
+    var textInput = document.querySelector('#text');
+    var postButton = document.querySelector('#post');
+
+    postButton.addEventListener("click", function() {
+      var msgUser = usernameInput.value;
+      var msgText = textInput.value;
+      myFirebase.set(msgUser + " says: " + msgText);
+      textInput.value = "";
+    });
+
+  </script>
+
+
+</body>
+</html>
