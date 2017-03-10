@@ -84,7 +84,15 @@ firebase.auth().signInWithPopup(provider);
     var textInput = document.querySelector('#text');
     var postButton = document.querySelector('#post');
 
+    var username = null;
+    var loginButton = document.querySelector('#login');
+    postButton.style.display = "none";
+    textInput.style.display = "none";
+
+
     postButton.addEventListener("click", function() {
+      var msgUser = username;
+
       var msgUser = usernameInput.value;
       var msgText = textInput.value;
       database.ref().push({username:msgUser, text:msgText});
