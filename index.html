@@ -36,7 +36,7 @@
     postButton.addEventListener("click", function() {
       var msgUser = usernameInput.value;
       var msgText = textInput.value;
-      database.push({username:msgUser, text:msgText});
+      database.ref().push({username:msgUser, text:msgText});
      textInput.value = "";
     });
 
