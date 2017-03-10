@@ -110,7 +110,7 @@ var startListening = function() {
 
         msgElement.className = "msg";
         
-        document.getElementById("results").appendChild(msgElement);
+        document.getElementById("results").prependChild(msgElement);
         console.log("MsgElement" + msgElement);
       });
     }
